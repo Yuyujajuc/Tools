@@ -1,0 +1,1027 @@
+/* =========================================================
+   FONT
+   ========================================================= */
+
+@font-face {
+  font-family: "ES Quarz TRIAL";
+  src: url("assets/ESQuarzTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  --ink: #525952;
+  --paper: #bab6b1;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: "ES Quarz TRIAL", serif;
+  font-weight: 400;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+main {
+  min-height: 100svh;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CANVAS
+   ========================================================= */
+
+.canvas {
+  position: relative;
+
+  width: min(100vw, 153.9715svh);
+  aspect-ratio: 1512 / 982;
+
+  container-type: inline-size;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+h1 {
+  position: absolute;
+  left: 5.291005%;
+  top: 16.1%;
+
+  z-index: 50;
+
+  margin: 0;
+
+  font-size: 3.7037cqw;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   LEFT STUDY NAVIGATION
+   ========================================================= */
+
+.study-nav {
+  position: absolute;
+  left: 5.291005%;
+  top: 42.3%;
+
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4.35cqw;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.study-number {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  font-size: 3.7037cqw;
+  line-height: 1;
+
+  cursor: pointer;
+
+  opacity: 0.75;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.study-number:hover {
+  opacity: 1;
+
+  transform:
+    translateX(0.3cqw);
+}
+
+.study-number.is-active {
+  opacity: 1;
+}
+
+.study-number:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
+
+
+/* =========================================================
+   STUDY SCREEN TRANSITIONS
+   ========================================================= */
+
+.study-screen {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 650ms ease-in-out,
+    transform 750ms ease-in-out;
+
+  will-change:
+    opacity,
+    transform;
+}
+
+
+/*
+   Screen 1 sits to the left of 2 and 3.
+*/
+
+.bottle-screen {
+  transform:
+    translateX(-4cqw)
+    scale(0.985);
+}
+
+
+/*
+   Screen 2 sits in the middle.
+*/
+
+.bike-screen {
+  transform:
+    translateX(4cqw)
+    scale(0.985);
+}
+
+
+/*
+   Screen 3 also enters from the right.
+*/
+
+.ai-screen {
+  transform:
+    translateX(4cqw)
+    scale(0.985);
+}
+
+
+/* STUDY 1 ACTIVE */
+
+.canvas[data-study="1"] .bottle-screen {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform:
+    translateX(0)
+    scale(1);
+}
+
+
+/* STUDY 2 ACTIVE */
+
+.canvas[data-study="2"] .bike-screen {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform:
+    translateX(0)
+    scale(1);
+}
+
+
+/* Move bottle away when going to screen 2 */
+
+.canvas[data-study="2"] .bottle-screen {
+  transform:
+    translateX(-4cqw)
+    scale(0.985);
+}
+
+
+/* STUDY 3 ACTIVE */
+
+.canvas[data-study="3"] .ai-screen {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform:
+    translateX(0)
+    scale(1);
+}
+
+
+/* Move previous screens left when AI opens */
+
+.canvas[data-study="3"] .bottle-screen,
+.canvas[data-study="3"] .bike-screen {
+  transform:
+    translateX(-4cqw)
+    scale(0.985);
+}
+
+
+/* =========================================================
+   FIGURES
+   ========================================================= */
+
+figure {
+  margin: 0;
+}
+
+
+/* =========================================================
+   BOTTLE
+   ========================================================= */
+
+.bottle {
+  position: absolute;
+
+  left: 24.603%;
+  top: 21.69%;
+
+  width: 27.183%;
+  height: 62%;
+}
+
+.bottle-art {
+  position: relative;
+
+  width: 100%;
+
+  transform:
+    translateY(-9cqw);
+}
+
+
+/* Original bottle */
+
+.bottle-base {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  transition:
+    opacity 450ms ease-in,
+    transform 650ms ease-in;
+}
+
+
+/* Alternate bottle states */
+
+.bottle-state {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform:
+    translateY(2.5cqw)
+    scale(0.96);
+
+  transition:
+    opacity 550ms ease-in,
+    transform 700ms ease-in;
+}
+
+
+/* Hide default bottle */
+
+.bottle.has-flowers .bottle-base,
+.bottle.has-berry .bottle-base,
+.bottle.has-pencil .bottle-base {
+  opacity: 0;
+
+  transform:
+    translateY(1cqw)
+    scale(0.97);
+}
+
+
+/* Flower */
+
+.bottle.has-flowers .flower-base {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* Strawberry */
+
+.bottle.has-berry .berry-base {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* Pencil */
+
+.bottle.has-pencil .pencil-base {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* Modified bottle becomes clickable */
+
+.bottle.has-flowers .bottle-art,
+.bottle.has-berry .bottle-art,
+.bottle.has-pencil .bottle-art {
+  cursor: pointer;
+}
+
+
+/* Bottle caption */
+
+.bottle figcaption {
+  position: absolute;
+
+  left: 0;
+  top: 91.2%;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 3.7037cqw;
+  line-height: 1.1;
+}
+
+
+/* =========================================================
+   SHARED BUTTON RESET
+   ========================================================= */
+
+.flower,
+.berry,
+.pencil,
+.hanger,
+.helmet,
+.no-helmet,
+.ai-number {
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   ROTATED ASSETS
+   ========================================================= */
+
+.rotated {
+  position: absolute;
+}
+
+.rotated img {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: auto;
+  height: 100%;
+
+  max-width: none;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-90deg);
+}
+
+
+/* =========================================================
+   FLOWER
+   ========================================================= */
+
+.flower {
+  position: absolute;
+
+  left: 61.2434%;
+  top: 31.1609%;
+
+  width: 35.6481%;
+  height: 14.9695%;
+
+  transition:
+    transform 180ms ease;
+}
+
+.flower img {
+  height: 366.6667%;
+}
+
+.flower:hover {
+  transform:
+    scale(1.025);
+}
+
+.flower:active {
+  transform:
+    scale(0.985);
+}
+
+
+/* =========================================================
+   STRAWBERRY
+   ========================================================= */
+
+.berry {
+  position: absolute;
+
+  left: 70.2381%;
+  top: 47.7597%;
+
+  width: 11.04497%;
+
+  transition:
+    transform 180ms ease;
+}
+
+.berry img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.berry:hover {
+  transform:
+    scale(1.05);
+}
+
+.berry:active {
+  transform:
+    scale(0.97);
+}
+
+
+/* =========================================================
+   PENCIL
+   ========================================================= */
+
+.pencil {
+  left: 62.2354%;
+  top: 70.8758%;
+
+  width: 29.5635%;
+  height: 7.23014%;
+
+  transition:
+    transform 180ms ease;
+}
+
+.pencil img {
+  height: 629.5775%;
+}
+
+.pencil:hover {
+  transform:
+    scale(1.025);
+}
+
+.pencil:active {
+  transform:
+    scale(0.985);
+}
+
+
+/* =========================================================
+   BICYCLE
+   ========================================================= */
+
+.bike {
+  position: absolute;
+
+  left: 22%;
+  top: 25%;
+
+  width: 39%;
+  height: 51%;
+}
+
+.bike-art {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* All bike states */
+
+.bike-base,
+.bike-state {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition:
+    opacity 550ms ease-in,
+    transform 700ms ease-in;
+}
+
+
+/* Default bike */
+
+.bike-base {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+/* Alternate bike states */
+
+.bike-state {
+  opacity: 0;
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(2cqw)
+    scale(0.96);
+}
+
+
+/* Hide original */
+
+.bike.has-hanger .bike-base,
+.bike.has-helmet .bike-base,
+.bike.has-accident .bike-base {
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(1cqw)
+    scale(0.97);
+}
+
+
+/* bike2 */
+
+.bike.has-hanger .hanger-rack-state {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* bike3 */
+
+.bike.has-helmet .helmet-state {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* bike4 */
+
+.bike.has-accident .accident-state {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* Modified bike is clickable */
+
+.bike.has-hanger .bike-art,
+.bike.has-helmet .bike-art,
+.bike.has-accident .bike-art {
+  cursor: pointer;
+}
+
+
+/* Bike caption */
+
+.bike figcaption {
+  position: absolute;
+
+  left: 0;
+  top: 96%;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 3.7037cqw;
+  line-height: 1.1;
+}
+
+
+/* =========================================================
+   HANGER
+   ========================================================= */
+
+.hanger {
+  position: absolute;
+
+  left: 72.5%;
+  top: 14%;
+
+  width: 10.5%;
+
+  transition:
+    transform 180ms ease;
+}
+
+.hanger img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.hanger:hover {
+  transform:
+    scale(1.04);
+}
+
+.hanger:active {
+  transform:
+    scale(0.97);
+}
+
+
+/* =========================================================
+   HELMET
+   ========================================================= */
+
+.helmet {
+  position: absolute;
+
+  left: 73.6%;
+  top: 45.5%;
+
+  width: 7.5%;
+
+  transition:
+    transform 180ms ease;
+}
+
+.helmet img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.helmet:hover {
+  transform:
+    scale(1.05);
+}
+
+.helmet:active {
+  transform:
+    scale(0.97);
+}
+
+
+/* =========================================================
+   NO HELMET
+   ========================================================= */
+
+.no-helmet {
+  position: absolute;
+
+  left: 73.4%;
+  top: 64%;
+
+  width: 8%;
+
+  transition:
+    transform 180ms ease;
+}
+
+.no-helmet img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.no-helmet:hover {
+  transform:
+    scale(1.05);
+}
+
+.no-helmet:active {
+  transform:
+    scale(0.97);
+}
+
+
+/* =========================================================
+   GENERATIVE AI
+   ========================================================= */
+
+.ai {
+  position: absolute;
+
+  /*
+     Main AI card.
+     Adjust these four values if you want to line it up
+     even closer to your Figma.
+  */
+
+  left: 27%;
+  top: 29%;
+
+  width: 32%;
+  height: 43%;
+}
+
+
+/* Holds ai1, ai2, ai3, ai4 */
+
+.ai-art {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Every AI image occupies the same area */
+
+.ai-base,
+.ai-state {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition:
+    opacity 550ms ease-in,
+    transform 700ms ease-in;
+}
+
+
+/* Original AI screen */
+
+.ai-base {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+/* Other AI states */
+
+.ai-state {
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(2cqw)
+    scale(0.96);
+}
+
+
+/* Hide ai1 when another state is selected */
+
+.ai.has-ai-one .ai-base,
+.ai.has-ai-two .ai-base,
+.ai.has-ai-three .ai-base {
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(1cqw)
+    scale(0.97);
+}
+
+
+/* Right number 1 → ai2 */
+
+.ai.has-ai-one .ai-state-one {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* Right number 2 → ai3 */
+
+.ai.has-ai-two .ai-state-two {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* Right number 3 → ai4 */
+
+.ai.has-ai-three .ai-state-three {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(0)
+    scale(1);
+}
+
+
+/* Transformed AI becomes clickable */
+
+.ai.has-ai-one .ai-art,
+.ai.has-ai-two .ai-art,
+.ai.has-ai-three .ai-art {
+  cursor: pointer;
+}
+
+
+/* AI caption */
+
+.ai figcaption {
+  position: absolute;
+
+  left: 0;
+  top: 103%;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 3.7037cqw;
+  line-height: 1.1;
+}
+
+
+/* =========================================================
+   AI RIGHT-SIDE NUMBERS
+   ========================================================= */
+
+.ai-number {
+  position: absolute;
+
+  z-index: 5;
+
+  font-size: 3.7037cqw;
+  line-height: 1;
+
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+
+/* Top number */
+
+.ai-number-one {
+  left: 76%;
+  top: 26%;
+}
+
+
+/* Middle number */
+
+.ai-number-two {
+  left: 76%;
+  top: 45%;
+}
+
+
+/* Bottom number */
+
+.ai-number-three {
+  left: 76%;
+  top: 64%;
+}
+
+
+.ai-number:hover {
+  transform:
+    scale(1.08);
+}
+
+.ai-number:active {
+  transform:
+    scale(0.94);
+}
+
+
+/* =========================================================
+   FOCUS STATES
+   ========================================================= */
+
+.flower:focus-visible,
+.berry:focus-visible,
+.pencil:focus-visible,
+.hanger:focus-visible,
+.helmet:focus-visible,
+.no-helmet:focus-visible,
+.ai-number:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 7px;
+}

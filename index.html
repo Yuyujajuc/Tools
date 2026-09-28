@@ -1,0 +1,736 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Tools.</title>
+
+  <meta
+    name="description"
+    content="An interactive study of objects and their alternate uses."
+  >
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23BAB6B1'/%3E%3Ctext x='6' y='25' font-family='serif' font-size='28' fill='%23525952'%3ET%3C/text%3E%3C/svg%3E"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <main aria-label="Tools, an object study">
+
+    <div
+      class="canvas"
+      id="canvas"
+      data-study="1"
+    >
+
+      <!-- ==================================================
+           TITLE
+           ================================================== -->
+
+      <h1>Tools.</h1>
+
+
+
+      <!-- ==================================================
+           LEFT NAVIGATION
+           ================================================== -->
+
+      <ol
+        class="study-nav"
+        aria-label="Choose a study"
+      >
+
+        <li>
+          <button
+            class="study-number is-active"
+            id="study1Button"
+            type="button"
+            aria-label="Show bottle study"
+            aria-current="true"
+          >
+            1
+          </button>
+        </li>
+
+        <li>
+          <button
+            class="study-number"
+            id="study2Button"
+            type="button"
+            aria-label="Show bicycle study"
+          >
+            2
+          </button>
+        </li>
+
+        <li>
+          <button
+            class="study-number"
+            id="study3Button"
+            type="button"
+            aria-label="Show generative AI study"
+          >
+            3
+          </button>
+        </li>
+
+      </ol>
+
+
+
+      <!-- ==================================================
+           STUDY 1
+           BOTTLE
+           ================================================== -->
+
+      <section
+        class="study-screen bottle-screen"
+        id="bottleScreen"
+        aria-label="Bottle study"
+      >
+
+        <!-- Bottle -->
+
+        <figure
+          class="bottle"
+          id="bottle"
+        >
+
+          <div
+            class="bottle-art"
+            id="bottleArt"
+          >
+
+            <!-- Original bottle -->
+
+            <img
+              class="bottle-base"
+              src="assets/base1.png"
+              alt="Translucent mint green glass bottle"
+            >
+
+
+            <!-- Flower base -->
+
+            <img
+              class="bottle-state flower-base"
+              src="assets/base2.png"
+              alt="Bottle holding flowers"
+            >
+
+
+            <!-- Food waste bin -->
+
+            <img
+              class="bottle-state berry-base"
+              src="assets/base3.png"
+              alt="Food waste bin"
+            >
+
+
+            <!-- Pencil case -->
+
+            <img
+              class="bottle-state pencil-base"
+              src="assets/base4.png"
+              alt="Pencil case"
+            >
+
+          </div>
+
+
+          <figcaption id="bottleCaption">
+            bottle
+          </figcaption>
+
+        </figure>
+
+
+
+        <!-- Flower -->
+
+        <button
+          class="flower rotated"
+          id="flowerButton"
+          type="button"
+          aria-label="Turn bottle into flower base"
+        >
+          <img
+            src="assets/flower.png"
+            alt=""
+          >
+        </button>
+
+
+
+        <!-- Strawberry -->
+
+        <button
+          class="berry"
+          id="berryButton"
+          type="button"
+          aria-label="Turn bottle into food waste bin"
+        >
+          <img
+            src="assets/starberry.png"
+            alt=""
+          >
+        </button>
+
+
+
+        <!-- Pencil -->
+
+        <button
+          class="pencil rotated"
+          id="pencilButton"
+          type="button"
+          aria-label="Turn bottle into pencil case"
+        >
+          <img
+            src="assets/pencil.png"
+            alt=""
+          >
+        </button>
+
+      </section>
+
+
+
+      <!-- ==================================================
+           STUDY 2
+           BICYCLE
+           ================================================== -->
+
+      <section
+        class="study-screen bike-screen"
+        id="bikeScreen"
+        aria-label="Bicycle study"
+        aria-hidden="true"
+      >
+
+        <!-- Bicycle -->
+
+        <figure
+          class="bike"
+          id="bike"
+        >
+
+          <div
+            class="bike-art"
+            id="bikeArt"
+          >
+
+            <!-- Original bicycle -->
+
+            <img
+              class="bike-base"
+              src="assets/bike1.png"
+              alt="Bicycle"
+            >
+
+
+            <!-- Hanger rack -->
+
+            <img
+              class="bike-state hanger-rack-state"
+              src="assets/bike2.png"
+              alt="Bicycle being used as a hanger rack"
+            >
+
+
+            <!-- Helmet -->
+
+            <img
+              class="bike-state helmet-state"
+              src="assets/bike3.png"
+              alt="Person riding a bicycle with a helmet"
+            >
+
+
+            <!-- Accident -->
+
+            <img
+              class="bike-state accident-state"
+              src="assets/bike4.png"
+              alt="Vehicle accident involving a bicycle"
+            >
+
+          </div>
+
+
+          <figcaption id="bikeCaption">
+            bicycle
+          </figcaption>
+
+        </figure>
+
+
+
+        <!-- Hanger -->
+
+        <button
+          class="hanger"
+          id="hangerButton"
+          type="button"
+          aria-label="Turn bicycle into hanger rack"
+        >
+          <img
+            src="assets/hanger.png"
+            alt=""
+          >
+        </button>
+
+
+
+        <!-- Helmet -->
+
+        <button
+          class="helmet"
+          id="helmetButton"
+          type="button"
+          aria-label="Show bicycle with helmet"
+        >
+          <img
+            src="assets/helmet.png"
+            alt=""
+          >
+        </button>
+
+
+
+        <!-- No helmet -->
+
+        <button
+          class="no-helmet"
+          id="noHelmetButton"
+          type="button"
+          aria-label="Show vehicle accident"
+        >
+          <img
+            src="assets/no-helmet.png"
+            alt=""
+          >
+        </button>
+
+      </section>
+
+
+
+      <!-- ==================================================
+           STUDY 3
+           GENERATIVE AI
+           ================================================== -->
+
+      <section
+        class="study-screen ai-screen"
+        id="aiScreen"
+        aria-label="Generative AI study"
+        aria-hidden="true"
+      >
+
+        <!-- Generative AI interface -->
+
+        <figure
+          class="ai"
+          id="ai"
+        >
+
+          <div
+            class="ai-art"
+            id="aiArt"
+          >
+
+            <!-- Original AI screen -->
+
+            <img
+              class="ai-base"
+              src="assets/ai1.png"
+              alt="Generative AI interface with an empty prompt"
+            >
+
+
+            <!-- AI state 1 -->
+
+            <img
+              class="ai-state ai-state-one"
+              src="assets/ai2.png"
+              alt="Generative AI interface with a curry recipe prompt"
+            >
+
+
+            <!-- AI state 2 -->
+
+            <img
+              class="ai-state ai-state-two"
+              src="assets/ai3.png"
+              alt="Generative AI interface with a mouse and cheese prompt"
+            >
+
+
+            <!-- AI state 3 -->
+
+            <img
+              class="ai-state ai-state-three"
+              src="assets/ai4.png"
+              alt="Generative AI interface with a meat disposal prompt"
+            >
+
+          </div>
+
+
+          <figcaption>
+            generative ai
+          </figcaption>
+
+        </figure>
+
+
+
+        <!-- Right-side number 1 -->
+
+        <button
+          class="ai-number ai-number-one"
+          id="ai1Button"
+          type="button"
+          aria-label="Show first AI prompt"
+        >
+          1
+        </button>
+
+
+
+        <!-- Right-side number 2 -->
+
+        <button
+          class="ai-number ai-number-two"
+          id="ai2Button"
+          type="button"
+          aria-label="Show second AI prompt"
+        >
+          2
+        </button>
+
+
+
+        <!-- Right-side number 3 -->
+
+        <button
+          class="ai-number ai-number-three"
+          id="ai3Button"
+          type="button"
+          aria-label="Show third AI prompt"
+        >
+          3
+        </button>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+
+  <script>
+    /* =====================================================
+       STUDY NAVIGATION
+       ===================================================== */
+
+    const canvas = document.getElementById("canvas");
+
+    const studyButtons = [
+      document.getElementById("study1Button"),
+      document.getElementById("study2Button"),
+      document.getElementById("study3Button")
+    ];
+
+    const studyScreens = [
+      document.getElementById("bottleScreen"),
+      document.getElementById("bikeScreen"),
+      document.getElementById("aiScreen")
+    ];
+
+
+    function showStudy(studyNumber) {
+      canvas.dataset.study = studyNumber;
+
+      studyButtons.forEach((button, index) => {
+        const isActive = index === studyNumber - 1;
+
+        button.classList.toggle(
+          "is-active",
+          isActive
+        );
+
+        if (isActive) {
+          button.setAttribute(
+            "aria-current",
+            "true"
+          );
+        } else {
+          button.removeAttribute(
+            "aria-current"
+          );
+        }
+      });
+
+
+      studyScreens.forEach((screen, index) => {
+        const isActive = index === studyNumber - 1;
+
+        screen.setAttribute(
+          "aria-hidden",
+          String(!isActive)
+        );
+      });
+    }
+
+
+    studyButtons[0].addEventListener("click", () => {
+      showStudy(1);
+    });
+
+
+    studyButtons[1].addEventListener("click", () => {
+      resetBike();
+      showStudy(2);
+    });
+
+
+    studyButtons[2].addEventListener("click", () => {
+      resetAI();
+      showStudy(3);
+    });
+
+
+
+    /* =====================================================
+       BOTTLE
+       ===================================================== */
+
+    const bottle = document.getElementById("bottle");
+    const bottleArt = document.getElementById("bottleArt");
+    const bottleCaption = document.getElementById("bottleCaption");
+
+    const flowerButton = document.getElementById("flowerButton");
+    const berryButton = document.getElementById("berryButton");
+    const pencilButton = document.getElementById("pencilButton");
+
+
+    function clearBottleStates() {
+      bottle.classList.remove(
+        "has-flowers",
+        "has-berry",
+        "has-pencil"
+      );
+    }
+
+
+    function setBottleState(state, caption) {
+      clearBottleStates();
+
+      bottle.classList.add(state);
+      bottleCaption.textContent = caption;
+    }
+
+
+    function resetBottle() {
+      clearBottleStates();
+      bottleCaption.textContent = "bottle";
+    }
+
+
+    flowerButton.addEventListener("click", () => {
+      setBottleState(
+        "has-flowers",
+        "flower base"
+      );
+    });
+
+
+    berryButton.addEventListener("click", () => {
+      setBottleState(
+        "has-berry",
+        "food waste bin"
+      );
+    });
+
+
+    pencilButton.addEventListener("click", () => {
+      setBottleState(
+        "has-pencil",
+        "pencil case"
+      );
+    });
+
+
+    bottleArt.addEventListener("click", () => {
+      const isModified =
+        bottle.classList.contains("has-flowers") ||
+        bottle.classList.contains("has-berry") ||
+        bottle.classList.contains("has-pencil");
+
+      if (isModified) {
+        resetBottle();
+      }
+    });
+
+
+
+    /* =====================================================
+       BICYCLE
+       ===================================================== */
+
+    const bike = document.getElementById("bike");
+    const bikeArt = document.getElementById("bikeArt");
+    const bikeCaption = document.getElementById("bikeCaption");
+
+    const hangerButton = document.getElementById("hangerButton");
+    const helmetButton = document.getElementById("helmetButton");
+    const noHelmetButton = document.getElementById("noHelmetButton");
+
+
+    function clearBikeStates() {
+      bike.classList.remove(
+        "has-hanger",
+        "has-helmet",
+        "has-accident"
+      );
+    }
+
+
+    function setBikeState(state, caption) {
+      clearBikeStates();
+
+      bike.classList.add(state);
+      bikeCaption.textContent = caption;
+    }
+
+
+    function resetBike() {
+      clearBikeStates();
+      bikeCaption.textContent = "bicycle";
+    }
+
+
+    hangerButton.addEventListener("click", () => {
+      setBikeState(
+        "has-hanger",
+        "hanger rack"
+      );
+    });
+
+
+    helmetButton.addEventListener("click", () => {
+      setBikeState(
+        "has-helmet",
+        "vehicle"
+      );
+    });
+
+
+    noHelmetButton.addEventListener("click", () => {
+      setBikeState(
+        "has-accident",
+        "vehicle accident"
+      );
+    });
+
+
+    bikeArt.addEventListener("click", () => {
+      const isModified =
+        bike.classList.contains("has-hanger") ||
+        bike.classList.contains("has-helmet") ||
+        bike.classList.contains("has-accident");
+
+      if (isModified) {
+        resetBike();
+      }
+    });
+
+
+
+    /* =====================================================
+       GENERATIVE AI
+       ===================================================== */
+
+    const ai = document.getElementById("ai");
+    const aiArt = document.getElementById("aiArt");
+
+    const ai1Button = document.getElementById("ai1Button");
+    const ai2Button = document.getElementById("ai2Button");
+    const ai3Button = document.getElementById("ai3Button");
+
+
+    function clearAIStates() {
+      ai.classList.remove(
+        "has-ai-one",
+        "has-ai-two",
+        "has-ai-three"
+      );
+    }
+
+
+    function setAIState(state) {
+      clearAIStates();
+
+      ai.classList.add(state);
+    }
+
+
+    function resetAI() {
+      clearAIStates();
+    }
+
+
+    // Right number 1 → ai2.png
+
+    ai1Button.addEventListener("click", () => {
+      setAIState("has-ai-one");
+    });
+
+
+    // Right number 2 → ai3.png
+
+    ai2Button.addEventListener("click", () => {
+      setAIState("has-ai-two");
+    });
+
+
+    // Right number 3 → ai4.png
+
+    ai3Button.addEventListener("click", () => {
+      setAIState("has-ai-three");
+    });
+
+
+    // Click transformed AI interface → ai1.png
+
+    aiArt.addEventListener("click", () => {
+      const isModified =
+        ai.classList.contains("has-ai-one") ||
+        ai.classList.contains("has-ai-two") ||
+        ai.classList.contains("has-ai-three");
+
+      if (isModified) {
+        resetAI();
+      }
+    });
+  </script>
+
+</body>
+</html>
